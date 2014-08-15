@@ -1,0 +1,6 @@
+<li>
+	<span class="photos"><%= image_tag(photo.path+photo.filename, height: '1024', width: '768') %></span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(photo.created_at) %> ago.
+	</span>
+</li>

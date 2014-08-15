@@ -1,0 +1,12 @@
+<% @user ||= current_user %>
+<section>
+	<h5>My photo list ( <%= pluralize(current_user.photos.count, "photo") %> )</h5>
+	<div class="user_avatars">
+		<% @user.photos.each do |photo| %>
+		<%= link_to image_tag(photo.path+photo.filename, height: '60', width: '37'), current_user %>
+		<% end %>
+	</div>
+</section>
+<section>
+		<%= button_to "Take a shot", photos_path, class: "btn btn-large btn-primary" %>
+</section>

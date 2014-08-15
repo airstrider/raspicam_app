@@ -13,6 +13,10 @@ Bundler.require(*Rails.groups)
 
 module RaspicamApp
   class Application < Rails::Application
+
+    # The new line added for autoloaded of lib (Ryan Kim)
+    config.autoload_paths += %W(#{config.root}/lib)
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -27,5 +31,6 @@ module RaspicamApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
   end
 end

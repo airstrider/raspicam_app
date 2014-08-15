@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808143241) do
+ActiveRecord::Schema.define(version: 20140809151811) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20140808143241) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "photos", force: true do |t|
+    t.string   "path"
+    t.string   "filename"
+    t.string   "cam_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
